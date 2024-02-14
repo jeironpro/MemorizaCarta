@@ -56,14 +56,33 @@ function mostrarCarta(event) {
                         })
                     }, 1000);
                 } else {
-                    cartasAbiertas.forEach(carta => {
-                        carta.classList.add('iguales');
-                    });
+                    cartasAbiertas.forEach(carta => carta.classList.add('iguales'));
                     cartasAbiertas = [];
                     bloqueo = false;
+    
+                    const todasIguales = Array.from(imagen).every(img => img.parentElement.classList.contains('iguales'));
+    
+                    if (todasIguales) {
+                        setTimeout(() => {
+                            reiniciar();
+                            
+                        }, 1500);
+                    }
                 }
             }
 
         }
     }
+}
+
+function reiniciar() {
+    cartasAbiertas = [];
+    bloqueo = false;
+
+    const cartasAleatorias = cartas.sort(() => (Math.random() > 0.5) ? 2 : -1);
+
+    imagen.forEach((img, index) => {
+        img.src = cartasAleatorias[index].src;
+        img.parentElement.classList.remove('mostrar', 'iguales');
+    });
 }

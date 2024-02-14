@@ -9,13 +9,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .contenedor {
     background-color: #333;
     border-radius: 5px;
-    margin: 10px auto;
+    margin: 0px auto;
     width: max-content;
 }
 
@@ -74,5 +74,20 @@ body {
 @keyframes girar {
     100% {
         transform: rotateX(360deg);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .contenedor-juego {
+        margin-top: 130px;
+    }
+    
+    .titulo h1 {
+        font-size: 26px;
+    }
+
+    .contenedor-carta {
+        height: 80px;
+        width: 80px;
     }
 }
